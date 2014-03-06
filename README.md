@@ -2,6 +2,7 @@
 
 ##### Chainable SVG path string generator with some sugar added
 
+* Under 1kb minified and gzipped
 * Supports Node, AMD and browser environments (EcmaScript 5 or newer, shims should also work)
 * No dependencies
 
