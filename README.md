@@ -10,7 +10,7 @@ Writing SVG paths by hand is intuitively easy:
 <path class="SamplePath" d="M100,200 C100,100 250,100 250,200 S400,300 400,200" />
 ```
 
-However, dynamic gegeration of path strings can be tricky and look ugly. That's where SvgPath can help:
+However, dynamic generation of path strings can be tricky and look ugly. That's where SvgPath can help:
 ```javascript
 var path = SvgPath().to(100, 200)
               .bezier3(100, 100, 250, 100, 250, 200)
