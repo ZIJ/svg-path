@@ -2,8 +2,8 @@
 
 ##### Chainable SVG path string generator with some sugar added
 
--Supports Node, AMD and browser environments (EcmaScript 5+ or shims)
--No dependencies
+* Supports Node, AMD and browser environments (EcmaScript 5+ or shims)
+* No dependencies
 
 ```javascript
 var path = SvgPath().to(100, 200)
