@@ -2,11 +2,15 @@
 
 ##### Chainable SVG path string generator with some sugar added
 
-Read more about SVG paths in [W3 spec](http://www.w3.org/TR/SVG/paths.html#PathData)
-
 * Supports Node, AMD and browser environments (EcmaScript 5+ or shims)
 * No dependencies
 
+Writing SVG paths by hand is intuitively easy:
+```html
+<path class="SamplePath" d="M100,200 C100,100 250,100 250,200 S400,300 400,200" />
+```
+
+However, dynamic gegeration of path strings can be tricky and look ugly. That's where SvgPath can help:
 ```javascript
 var path = SvgPath().to(100, 200)
               .bezier3(100, 100, 250, 100, 250, 200)
@@ -26,3 +30,5 @@ Relative and absolute modes for convenience methods:
 var absolute = SvgPath().to(1000, 1000).hline(1010).vline(1010).hline(1000).close();
 var relative = SvgPath().to(1000, 1000).rel().hline(10).vline(10).hline(-10).close();
 ```
+
+Read more about SVG paths in [W3 spec](http://www.w3.org/TR/SVG/paths.html#PathData)
