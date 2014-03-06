@@ -2,6 +2,8 @@
 
 ##### Chainable SVG path string generator with some sugar added
 
+Read more about SVG paths in [W3 spec](http://www.w3.org/TR/SVG/paths.html#PathData)
+
 * Supports Node, AMD and browser environments (EcmaScript 5+ or shims)
 * No dependencies
 
