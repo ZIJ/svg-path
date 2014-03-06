@@ -6,7 +6,7 @@
 * Supports Node, AMD and browser environments (EcmaScript 5 or newer, shims should also work)
 * No dependencies
 
-Writing SVG paths by hand is intuitively easy:
+Writing SVG paths by hand is intuitively easy (see [W3 spec](http://www.w3.org/TR/SVG/paths.html#PathData)):
 ```html
 <path class="SamplePath" d="M100,200 C100,100 250,100 250,200 S400,300 400,200" />
 ```
@@ -31,5 +31,3 @@ Relative and absolute modes for convenience methods:
 var absolute = SvgPath().to(1000, 1000).hline(1010).vline(1010).hline(1000).close();
 var relative = SvgPath().to(1000, 1000).rel().hline(10).vline(10).hline(-10).close();
 ```
-
-Read more about SVG paths in [W3 spec](http://www.w3.org/TR/SVG/paths.html#PathData)
