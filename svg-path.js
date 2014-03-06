@@ -134,7 +134,7 @@
      */
     SvgPath.prototype.bezier2 = function(x1, y1, x, y){
         //TODO more flexible arguments handling
-        if (arguments.length >= 6) {
+        if (arguments.length >= 4) {
             return this._cmd('Q')(x1, y1, x, y);
         } else {
             return this._cmd('T')(x1, y1);
