@@ -1,5 +1,5 @@
 ## SvgPath
-
+[![NPM version](https://badge.fury.io/js/path-svg.png)](http://badge.fury.io/js/path-svg)
 ##### Chainable SVG path string generator with some sugar added
 
 * Under 1kb minified and gzipped
