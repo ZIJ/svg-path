@@ -8,7 +8,7 @@
     "url": "https://github.com/ZIJ/svg-path.git"
   },
   "keywords": [
-    "svg"
+    "svg", "path", "generate", "generator"
   ],
   "license": "MIT"
 }
