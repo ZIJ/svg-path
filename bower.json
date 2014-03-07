@@ -1,0 +1,7 @@
+{
+  "name": "svg-path",
+  "version": "0.2.1",
+  "main": "svg-path.js",
+  "dependencies": {},
+  "devDependencies": {}
+}
