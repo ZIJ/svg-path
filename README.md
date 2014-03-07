@@ -35,6 +35,10 @@ var relative = SvgPath().to(1000, 1000).rel().hline(10).vline(10).hline(-10).clo
 
 ## Changelog
 
+#### 0.2.1
+
+* Published as NPM module [path-svg](https://www.npmjs.org/package/path-svg)
+
 #### 0.2.0
 
 * Added point support
