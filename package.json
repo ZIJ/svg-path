@@ -1,6 +1,6 @@
 {
   "name": "path-svg",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Igor Zalutsky <igor.zalutsky@gmail.com>",
   "description": "Chainable SVG path string generator with some sugar added",
   "repository": {
