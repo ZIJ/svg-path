@@ -38,7 +38,7 @@ var relative = SvgPath().to(1000, 1000).rel().hline(10).vline(10).hline(-10).clo
 #### 0.2.0
 
 * Added point support
-* Minor refactorings
+* Minor fixes
 
 #### 0.1.1
 
