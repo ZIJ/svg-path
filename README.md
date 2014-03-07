@@ -32,3 +32,19 @@ Relative and absolute modes for convenience methods:
 var absolute = SvgPath().to(1000, 1000).hline(1010).vline(1010).hline(1000).close();
 var relative = SvgPath().to(1000, 1000).rel().hline(10).vline(10).hline(-10).close();
 ```
+
+## Changelog
+
+#### 0.2.0
+
+* Added point support
+* Minor refactorings
+
+#### 0.1.1
+
+* Fixed shortcut detection
+
+#### 0.1.0
+
+* Initial release
+
