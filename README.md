@@ -6,6 +6,15 @@
 * Supports Node, AMD and browser environments (EcmaScript 5 or newer, shims should also work)
 * No dependencies
 
+Install via Bower:
+```
+bower install svg-path
+```
+Or NPM (package name is *path-svg*, not svg-path)
+```
+npm install path-svg
+```
+
 Writing SVG paths by hand is intuitively easy (see [W3 spec](http://www.w3.org/TR/SVG/paths.html#PathData)):
 ```html
 <path class="SamplePath" d="M100,200 C100,100 250,100 250,200 S400,300 400,200" />
