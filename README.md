@@ -11,14 +11,15 @@ Writing SVG paths by hand is intuitively easy (see [W3 spec](http://www.w3.org/T
 <path class="SamplePath" d="M100,200 C100,100 250,100 250,200 S400,300 400,200" />
 ```
 
-However, dynamic generation of path strings can be tricky and look ugly. That's where SvgPath can help:
+However, dynamic generation of path strings can be tricky and look ugly since most graphic algorithms utilize points, vectors and matrices, not just plain coordinates. That's where SvgPath can help:
 ```javascript
-var path = SvgPath().to(100, 200)
-              .bezier3(100, 100, 250, 100, 250, 200)
-              .bezier3(400, 300, 400, 200).str();
+//start, control1, control2, middle are point objects with x and y properties
+var path = SvgPath().to(start)
+              .bezier3(control1, control2, middle)
+              .bezier3(x1, y1, x2, y2).str();
 ```
 
-Single-letter methods are also supported (both absolute and relative):
+Single-letter SVG methods are also supported (both absolute and relative):
 ```javascript
 var path = SvgPath().M(100, 200)
               .C(100, 100, 250, 100, 250, 200)
