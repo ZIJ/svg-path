@@ -3,7 +3,7 @@
  * Chainable SVG path string generator with some sugar added
  * Supports Node, AMD and browser environments (EcmaScript 5+ or shims)
  * No dependencies
- * @version 0.1.0
+ * @version 0.2.0
  * @author Igor Zalutsky
  * @license MIT
  */
@@ -67,22 +67,26 @@
 
     /**
      * Moves pen (M or m command)
+     * Also accepts point, i.e. { x: 10, y: 20 }
      * @param x
      * @param y
      * @returns {SvgPath}
      */
     SvgPath.prototype.to = function(x, y){
-        return this._cmd('M')(x, y);
+        var point = (typeof x === 'object') ? x : { x: x, y: y };
+        return this._cmd('M')(point.x, point.y);
     };
 
     /**
      * Draws line (L or l command)
+     * Also accepts point, i.e. { x: 10, y: 20 }
      * @param x
      * @param y
      * @returns {SvgPath}
      */
     SvgPath.prototype.line = function(x, y){
-        return this._cmd('L')(x, y);
+        var point = (typeof x === 'object') ? x : { x: x, y: y };
+        return this._cmd('L')(point.x, point.y);
     };
 
     /**
@@ -105,7 +109,8 @@
 
     /**
      * Draws cubic bezier curve (C or c command)
-     * If x and y are omitted, acts like shortcut (S or s command)
+     * Also accepts 2 or 3 points, i.e. { x: 10, y: 20 }
+     * If last point is omitted, acts like shortcut (S or s command)
      * @param x1
      * @param y1
      * @param x2
@@ -115,17 +120,27 @@
      * @returns {SvgPath}
      */
     SvgPath.prototype.bezier3 = function(x1, y1, x2, y2, x, y){
-        //TODO more flexible arguments handling
-        if (arguments.length >= 6) {
-            return this._cmd('C')(x1, y1, x2, y2, x, y);
+        var usePoints = (typeof x1 === 'object');
+        var shortcut = usePoints ? arguments.length < 3 : arguments.length < 6;
+        var p1 = { x: x1, y: y1 };
+        var p2 = { x: x2, y: y2 };
+        var end = shortcut ? p2 : { x: x, y: y };
+        if (usePoints){
+            p1 = x1;
+            p2 = y1;
+            end = shortcut ? p2 : x2;
+        }
+        if (!shortcut) {
+            return this._cmd('C')(p1.x, p1.y, p2.x, p2.y, end.x, end.y);
         } else {
-            return this._cmd('S')(x1, y1, x2, y2);
+            return this._cmd('S')(p1.x, p1.y, end.x, end.y);
         }
     };
 
     /**
      * Draws quadratic bezier curve (Q or q command)
-     * If x and y are omitted, acts like shortcut (T or t command)
+     * Also accepts 1 or 2 points, i.e. { x: 10, y: 20 }
+     * If last point is omitted, acts like shortcut (T or t command)
      * @param x1
      * @param y1
      * @param x
@@ -133,16 +148,24 @@
      * @returns {SvgPath}
      */
     SvgPath.prototype.bezier2 = function(x1, y1, x, y){
-        //TODO more flexible arguments handling
-        if (arguments.length >= 4) {
-            return this._cmd('Q')(x1, y1, x, y);
+        var usePoints = (typeof x1 === 'object');
+        var shortcut = usePoints ? arguments.length < 2 : arguments.length < 4;
+        var p1 = { x: x1, y: y1 };
+        var end = shortcut ? p1 : { x: x, y: y };
+        if (usePoints){
+            p1 = x1;
+            end = shortcut ? p1 : y1;
+        }
+        if (!shortcut) {
+            return this._cmd('Q')(p1.x, p1.y, end.x, end.y);
         } else {
-            return this._cmd('T')(x1, y1);
+            return this._cmd('T')(end.x, end.y);
         }
     };
 
     /**
      * Draws an arc (A or a command)
+     * Also accepts end point, i.e. { x: 10, y: 20 }
      * @param rx
      * @param ry
      * @param rotation
@@ -153,8 +176,8 @@
      * @returns {*}
      */
     SvgPath.prototype.arc = function(rx, ry, rotation, large, sweep, x, y){
-        //TODO think of possible sugar tweaks with arcs
-        return this._cmd('A')(rx, ry, rotation, large, sweep, x, y);
+        var point = (typeof x === 'object') ? x : { x: x, y: y };
+        return this._cmd('A')(rx, ry, rotation, large, sweep, point.x, point.y);
     };
 
     /**
