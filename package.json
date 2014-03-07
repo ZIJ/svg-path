@@ -1,0 +1,14 @@
+{
+  "name": "svg-path",
+  "version": "0.2.0",
+  "author": "Igor Zalutsky <igor.zalutsky@gmail.com>",
+  "description": "Chainable SVG path string generator with some sugar added"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZIJ/svg-path.git"
+  },
+  "keywords": [
+    "svg"
+  ]
+  "license": "MIT"
+}
