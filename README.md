@@ -13,6 +13,11 @@ bower install svg-path
 ```
 NPM package name is path-svg because svg-path already exists.
 
+If you're using modules, require it with:
+```javascript
+var SvgPath = require('path-svg/svg-path');
+```
+
 Writing SVG paths by hand is intuitively easy (see [W3 spec](http://www.w3.org/TR/SVG/paths.html#PathData)):
 ```html
 <path class="SamplePath" d="M100,200 C100,100 250,100 250,200 S400,300 400,200" />
